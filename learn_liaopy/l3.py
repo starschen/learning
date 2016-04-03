@@ -1,4 +1,6 @@
 #encoding:utf8
+
+##1
 def my_abs(x):
     if not isinstance(x,(int,float)):
         return TypeError('bad operand type')
@@ -7,6 +9,7 @@ def my_abs(x):
     else:
         return -x
 
+##2
 import math
 
 def move(x,y,step,angle=0):
@@ -14,6 +17,7 @@ def move(x,y,step,angle=0):
     ny=y-step*math.sin(angle)
     return nx,ny
 
+##3
 def power(x,n=2):
     s=1
     while n>0:
@@ -21,6 +25,7 @@ def power(x,n=2):
         s=s*x
     return s
 
+##4
 def enroll(name,gender,age=6,city='Beijing'):
     print 'name',name
     print 'gender',gender
@@ -40,7 +45,11 @@ def func(a,b,c=0,*args,**kw):
     print 'a=',a,'b=',b,'c=',c,'args=',args,'kw=',kw
 
 def fact(n):
-    if n==1:
-        return 1
+    return fact_iter(n,1)
+
+def fact_iter(num,product):
+    if num==1:
+        return product
     else:
-        return n*fact(n-1)
+        return fact_iter(num-1,num*product)
+
