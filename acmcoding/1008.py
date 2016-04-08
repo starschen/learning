@@ -13,4 +13,4 @@ while(l!=[0]):
     for i in range(len(l)):
         for j in range(1,len(l[i])):
             if (j<len(i)-1) and l[i][j]<l[i][j+1]:
-                sum=stop*(len(l[i])-1)+
+                sum=stop*(len(l[i])-1)+up*l[i][j]+
