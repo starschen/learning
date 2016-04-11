@@ -1,0 +1,4 @@
+Type some words in this nano editor program.
+You can use [ctrl] plus some keywords to go to some functions.
+Hello everyone.
+Bye bye.
