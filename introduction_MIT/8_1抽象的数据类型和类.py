@@ -43,6 +43,67 @@ class IntSet(object):
         return '{' + result[:-1]+ '}'
 
 
-s=IntSet()
-s.insert(3)
-print s.member(3)
+# s=IntSet()
+# s.insert(3)
+# print s.member(3)
+
+
+#8.1.2用类记录学生和老师
+
+import datetime
+
+class Person(object):
+
+    def __init__(self,name):
+        """创建一个人"""
+        self.name=name
+        try:
+            lastBlank=name.rindex(' ')
+            self.lastName=name[lastBlank+1:]
+        except:
+            self.lastName=name
+        self.birthday=None
+
+    def getName(self):
+        """返回这个人的姓名"""
+        return self.name
+
+    def getLastName(self):
+        """返回这个人的姓"""
+        return self.lastName
+
+    def setBirthday(self,birthDate):
+        """假定birthDate是datetime.date类型
+           把birthDate设置为这个人的生日"""
+        self.birthday=birthDate
+
+    def getAge(self):
+        """返回这个人当前的年龄对应的天数"""
+        if self.birthday==None:
+            raise ValueError
+        return (datetime.date.today()-self.birthday).days
+
+    def __lt__(self,other):
+        """如果这个人的名字字典小于另一个人的名字返回True,否则返回False"""
+        if self.lastName==other.lastName:
+            return self.name<other.name
+        return self.lastName<other.lastName
+
+    def __str__(self):
+        """返回这个人的名字"""
+        return self.name
+
+me=Person('Michael Guttag')
+him=Person('Barack Hussein Obama')
+her=Person('Madonna')
+# print him.getLastName()
+# him.setBirthday(datetime.date(1961,8,4))
+# her.setBirthday(datetime.date(1958,8,16))
+# print him.getName(),'is',him.getAge(),'days old'
+
+pList=[me,him,her]
+for p in pList:
+    print p
+pList.sort()
+for p in pList:
+    print p
