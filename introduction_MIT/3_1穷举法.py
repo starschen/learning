@@ -1,6 +1,6 @@
 #encoding:utf8
 #3.1穷举法
-
+#寻找完全立方数的立方根
 # x=int(raw_input('Enter an integer: '))
 # ans=0
 # while ans**3<abs(x):
