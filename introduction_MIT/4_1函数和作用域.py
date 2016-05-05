@@ -1,5 +1,16 @@
 #encoding:utf8
 #4.1函数和作用域
+#动手练习：编写一个函数isIN，接受两个字符串作为参数，如果一个字符串出现在另一个中就返回True否则返回False
+def isIn(s1,s2):
+    if (s1 in s2) or (s2 in s1):
+        return True
+    else:
+        return False
+
+print isIn('abc','abcdefg')
+print isIn('cdefgabc','abc')
+print isIn('abc','def')
+
 
 #4.1.2关键字参数和默认值
 # def printName(firstName,lastName,reverse):
@@ -47,14 +58,14 @@
 # print 'z=',z
 # z()
 
-def f():
-    print x
-
-def g():
-    print x  #出错
-    x=1
-
-x=3
-f()
-x=3
-g()
+# def f():
+#     print x
+#
+# def g():
+#     print x  #出错
+#     x=1
+#
+# x=3
+# f()
+# x=3
+# g()

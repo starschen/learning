@@ -9,13 +9,16 @@ def findRoot(x,power,epsilon):
     low=min(-1.0,x)
     high=max(1.0,x)
     ans=(high+low)/2.0
-    while abs(ans**power-x)>=epsilon:
-        if ans**power<x:
-            low=ans
-        else:
-            high=ans
-        ans=(high+low)/2.0
-    return ans
+    if x<0 and power%2==0:  #此部分后加，若x为负数，求偶数次方无解
+        return None
+    else:
+        while abs(ans**power-x)>=epsilon:
+            if ans**power<x:
+                low=ans
+            else:
+                high=ans
+            ans=(high+low)/2.0
+        return ans
 
 def testFindRoot():
     epsilon=0.0001
