@@ -27,8 +27,9 @@
 m=int(raw_input('Enter an integer: '))
 for pwr in range(1,6):
     for root in range(abs(m)+1):
-        if root**pwr>=abs(m):
+        if root**pwr>abs(m):
             break
+
 
 if root**pwr!=abs(m):
     print 'not exist root pwr'
