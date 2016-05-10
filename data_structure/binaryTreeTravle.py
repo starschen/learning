@@ -8,6 +8,34 @@ class Node:
         self.left=left
         self.right=right
 
+#此部分为后加，代码来源http://www.cnblogs.com/sunada2005/p/3326160.html
+class BinaryTree(object):
+    def __init__(self):
+        self.root=Node()
+
+    def add(self,value):
+        node=Node(value)
+        if self.isEmpty():
+            self.root=node
+        else:
+            tree_node=self.root
+            queue=[]
+            queue.append(self.root)
+
+            while queue:
+                tree_node=queue.pop(0)
+                if tree_node.left==None:
+                    tree_node.left=node
+                    return
+                elif tree_node.right==None:
+                    tree.node.right=node
+                    return
+                else:
+                    queue.append(tree_node.left)
+                    queue.append(tree_node.right)
+
+
+
 def preTraverse(root):
     if root==None:
         return
