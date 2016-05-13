@@ -49,3 +49,15 @@ d.get(k,v)#如果k在d中，返回d[k]，否则返回v
 d[k]=v#将值v与键k关联，若k已有值，则v替换原来值
 del d[k]#删除键k
 for k in d
+
+
+#pylab
+import pylab
+pylab.rcParams['lines.linewidth']=4#设置线条宽度
+pylab.rcParams['axex.titlesize']=20#设置标题字体大小
+pylab.rcParams['axes.labelsize']=20#设置坐标轴标签的字体大小
+pylab.rcParams['xtick.labelsize']=16#设置x轴数字大小
+pylab.rcParams['ytick.labelsize']=16#设置y轴数字大小
+pylab.rcParams['xtick.major.size']=7#设置x轴上的标记大小
+pylab.rcParams['ytick.major.size']=7#设置y轴上的标记大小
+pylab.rcParams['lines.markersize']=10#设置标志大小
