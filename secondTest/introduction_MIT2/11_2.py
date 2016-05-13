@@ -2,28 +2,29 @@
 import pylab
 def findPayment(loan,r,m): #loan and r are float,r is ratio,m is month
     return loan*(r*(1+r)**m)/((1+r)**m-1)   #return loan per month to pay back
+    #
 
 class Mortgage(object):
     '''用来生成不同类型贷款的抽象类'''
     def __init__(self,loan,annRate,months):
         '''创建一个新贷款'''
-        self.loan=loan
-        self.rate=annRate/12.0
-        self.months=months
-        self.paid=[0.0]
-        self.owed=[loan]
-        self.payment=findPayment(loan,self.rate,months)
-        self.legend=None
+        self.loan=loan#欠款总额
+        self.rate=annRate/12.0 #月利率＝年利率／12
+        self.months=months#总月份
+        self.paid=[0.0]#已还款列表
+        self.owed=[loan]#仍欠款列表
+        self.payment=findPayment(loan,self.rate,months)#每月要还的钱
+        self.legend=None#对子类的描述
 
     def makePayment(self):
         '''还款'''
         self.paid.append(self.payment)
-        reduction=self.payment-self.owed[-1]*self.rate
-        self.owed.append(self.owed[-1]-reduction)
+        reduction=self.payment-self.owed[-1]*self.rate#????
+        self.owed.append(self.owed[-1]-reduction)#????
 
     def getTotalPaid(self):
         '''返回到目前为止的总还款额'''
-        return sum(self.paid)
+        return sum(self.paid)#
 
     def __str__(self):
         return self.legend
