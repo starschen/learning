@@ -1,14 +1,13 @@
 #encoding:utf8
 #二叉树的遍历(前、中、后)
 
-#代码来源：http://blog.csdn.net/littlethunder/article/details/9707669，仅学习用
-class Node:
-    def __init__(self,value=None,left=None,right=None):
-        self.value=value
-        self.left=left
-        self.right=right
 
-#此部分为后加，代码来源http://www.cnblogs.com/sunada2005/p/3326160.html
+class Node:
+    def __init__(self,value=None,right=None,left=None):
+        self.value=value
+        self.right=right
+        self.left=left
+
 class BinaryTree(object):
     def __init__(self):
         self.root=Node()
@@ -28,13 +27,11 @@ class BinaryTree(object):
                     tree_node.left=node
                     return
                 elif tree_node.right==None:
-                    tree.node.right=node
+                    tree_node.right=node
                     return
                 else:
                     queue.append(tree_node.left)
                     queue.append(tree_node.right)
-
-
 
 def preTraverse(root):
     if root==None:
@@ -73,15 +70,14 @@ midList=list('ABCDEFG')
 afterList=[]
 
 def findTree(preList,midList,afterList):
-    if len(preList)==0:    #树为空时
+    if len(preList)==0:
         return
-    elif len(preList)==1:   #树只有根结点
+    elif len(preList)==1:
         afterList.append(preList[0])
         return
-    root=preList[0]     #前序遍历的第一个元素为根结点
-    n=midList.index(root)      #在中序遍历中找到根结点所在的位置，结点左为左子树，右为右子树
-    #前序遍历中第1到n的元素左子树，同时1为左子树的根
-    findTree(preList[1:n+1],midList[:n],afterList) #这部分不太能理解，midList不应该是左子树范围吗？
+    root=preList[0]
+    n=midList.index(root)
+    findTree(preList[1:n+1],midList[:n],afterList)
     findTree(preList[n+1:],midList[n+1:],afterList)
     afterList.append(root)
     return afterList
