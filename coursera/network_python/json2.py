@@ -1,18 +1,17 @@
 import json
-input='''[
-    {"id":"001",
-     "x":"2",
-     "name":"Chunck"
-    },
-    {"id":"009",
-     "x":"7",
-     "name":"Chunck"
-    }
-]'''
+import urllib
 
-info=json.loads(input)
-print 'User count:',len(info)
-for item in info:
-    print 'Name',item['name']
-    print 'Id',item['id']
-    print 'Attribute',item['x']
+url=raw_input('Enter url:')
+
+uh=urllib.urlopen(url)
+data=uh.read()
+
+info=json.loads(data)
+# print info["comments"]
+
+sum=0
+for item in info["comments"]:
+    # print 'Count:',item["count"]
+    sum=sum+item["count"]
+
+print sum
